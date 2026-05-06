@@ -1,4 +1,10 @@
-import { Server } from "./src/server";
+Bun.serve({
+  port: 3000,
+  async fetch(req) {
+    return Response.json({
+      hello: 'world'
+    })
+  }
+});
 
-const server = new Server();
-server.listen();
+console.log('Server running on http://localhost:3000');
