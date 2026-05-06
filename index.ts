@@ -32,18 +32,6 @@ Bun.serve({
     const uint8 = new Uint8Array(buffer);
     const detected = await fileTypeFromBuffer(uint8);
 
-    const width = url.searchParams.has('w') ? parseInt(url.searchParams.get('w')!) : undefined;
-    const height = url.searchParams.has('h') ? parseInt(url.searchParams.get('h')!) : undefined;
-
-    if (width == null && height == null) {
-      return new Response(buffer, {
-        headers: {
-          'Content-Type': detected?.mime ?? 'application/octet-stream',
-          'Cache-Control': 'public, max-age=31536000',
-        }
-      })
-    }
-
     return new Response(buffer, {
       headers: {
         'Content-Type': detected?.mime ?? 'application/octet-stream',
