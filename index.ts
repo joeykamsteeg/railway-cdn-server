@@ -35,7 +35,7 @@ Bun.serve({
     return new Response(buffer, {
       headers: {
         'Content-Type': detected?.mime ?? 'application/octet-stream',
-        'Cache-Control': 'public, max-age=31536000',
+        'Cache-Control': 'public, max-age=31536000, immutable',
       }
     })
   }
