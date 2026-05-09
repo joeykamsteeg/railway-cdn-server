@@ -48,7 +48,7 @@ Bun.serve({
     return new Response(buffer, {
       headers: {
         'Content-Type': contentType,
-        'Cache-Control': 'public, max-age=31536000',
+        'Cache-Control': 'public, max-age=31536000, immutable',
       }
     })
   }
